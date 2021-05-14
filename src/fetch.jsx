@@ -1,0 +1,179 @@
+import {useState , useEffect} from 'react'
+import axios from 'axios'
+export default function Fetch(props) {
+  const [text , setText] = useState('')
+  useEffect(() => {
+    axios.get('https://raw.githubusercontent.com/invictustech/test/main/README.md')
+    .then(res => {
+      setText(res.data)
+    }).catch(err => console.log('err' ,err))
+  }, [])
+
+  function wordFreq(string) {
+    var words1 = string.replace(/[.,-;]/g, '').toUpperCase().split(/\s/);
+    var words = words1.filter(function (el) {
+        return el !== '';
+      });
+    var freqMap = {};
+    words.forEach(function(w) {
+        if (!freqMap[w]) {
+            freqMap[w] = 0;
+        }
+        freqMap[w] += 1;
+    });
+
+    return freqMap;
+}
+
+
+
+const array = [{}]
+array.push(wordFreq(text));
+
+
+
+const resultArray = [{}]
+
+for(const item of Object.entries(array[1])) {
+  // console.log(item[0])
+  const newObj = {
+    word:'',
+    count:0
+  }
+  newObj.word = item[0]
+  newObj.count = item[1];
+  resultArray.push(newObj);
+}
+function compare( a, b ) {
+    if ( a.count > b.count ){
+      return -1;
+    }
+    if ( a.count < b.count ){
+      return 1;
+    }
+    return 0;
+}
+  
+resultArray.sort( compare );
+var r = [{}]
+var num = parseInt(props.number) + 1
+if(num>resultArray.length){
+    return(
+        <p>Invalid value!! exeded the total number of different words which is {resultArray.length - 1}</p>
+    )
+}
+else if(num<=0){
+    return(
+        <p>Invalid value!! N cannot be negative</p>
+    )
+}
+else if(num===1){
+    return(
+        <p>Nothing to show N is equal to 0</p>
+    )
+}
+else if(Number.isNaN(num)){
+  return(
+      <p>Nothing to show N is not entered</p>
+  )
+}
+r = resultArray.slice(1,num);
+const TableList = ({word , count}) => {
+   return (
+     <tr>
+       <td>{word}</td>
+       <td>{count}</td>
+      </tr>
+   )
+} 
+//console.log('new Array' , resultArray)
+
+  return (
+    <div className="App">
+      <table>
+        <tbody>
+        <tr id="header">
+        <th>Word</th>
+        <th>Count</th>
+      </tr>
+      {r.map((item , index) => (<TableList word={item.word} key={index.toString()} count={item.count} />))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+
+/*import {useEffect, useState} from 'react'
+import axios from 'axios'
+
+export default function App() {
+  const [text , setText] = useState('')
+  useEffect(() => {
+    axios.get('https://raw.githubusercontent.com/invictustech/test/main/README.md')
+    .then(res => {
+      //console.log('res' , setText(res.data));
+      setText(text)
+    }).catch(err => console.log('err' ,err))
+  })
+  
+  function wordFreq(string) {
+    var words = string.replace(/[.]/g, '').split(/\s/);
+    var freqMap = {};
+    words.forEach(function(w) {
+        if (!freqMap[w]) {
+            freqMap[w] = 0;
+        }
+        freqMap[w] += 1;
+    });
+
+    return freqMap;
+}
+
+const array = []
+array.push(wordFreq(text));
+console.log(wordFreq(text))
+  return (
+    <div className="App">
+        <p>array</p> 
+    </div>
+  );
+}
+
+*//*const axios = require('axios')
+
+function a(){
+  axios.get('https://raw.githubusercontent.com/invictustech/test/main/README.md')
+    .then(result => {
+      let frequentObj = {};
+      let stringArray1 = result.data.split(' ').join(',').split('\n').join(',').split('-').join(',').split('.').join(',').split(',');
+      var stringArray = stringArray1.filter(function (el) {
+        return el !== '';
+      });
+      for (let i = 0; i < stringArray.length; i++) {
+        let word = stringArray[i];
+        if (frequentObj[word]) {
+          frequentObj[word]++;
+        } else {
+          frequentObj[word] = 1;
+        }
+      }
+      const frequentArray = Object.entries(frequentObj);
+      frequentArray.sort(function(a,b) {
+        return b[1]-a[1]
+      });
+
+      const final = []
+
+      for(var i=0; i<frequentArray.length; i++)  {
+          final.push({word: frequentArray[i][0], freq: frequentArray[i][1]});
+      }
+      console.log(final)
+      return final;
+      *//*console.log(typeof(final));
+      console.log(final);
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}*/

@@ -26,7 +26,7 @@ In Fetch data is fetched from url using axios module, after in function wordFreq
         freqMap[w] += 1;
     });
 </pre>
-and pushed into array name array and then each word in array assigned key "word" and freq of that word key "count" and stored in resultarray, resultarray is sliced as the value given to functional component as parameter then Fetch functional component returns the table formed from sliced array, if the value of passed parameter is 0 it will show nothing, if it is NaN then it show message "Nothing to show N is not entered", if it is negative it show "Invalid value!! N cannot be negative", if it is more then total number of different words then "Invalid value!! exeded the total number of different words which is 144".</br></br>
+and pushed into array name array and then each word in array assigned key "word" and freq of that word key "count" and stored in resultarray, resultarray is sliced as the value given to functional component as parameter then Fetch functional component returns the table formed from sliced array, if the value of passed parameter is 0 it will show nothing, if it is NaN then it show message "Nothing to show N is not entered", if it is negative it show "Invalid value!! N cannot be negative", if it is more then total number of different words then "Invalid value!! exeded the total number of different words which is {number_of_words}".</br></br>
 2)App in App.jsx</br>
 In App react useState is used to store value of input form and on click on button change function is triggered which store the input value in variable name num which is passed to the Fetch component.
 

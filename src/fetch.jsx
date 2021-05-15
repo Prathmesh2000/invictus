@@ -69,6 +69,7 @@ else if(num<=0){
 }
 else if(num===1){
     return(
+      <p> </p>
     )
 }
 else if(Number.isNaN(num)){
@@ -101,78 +102,3 @@ const TableList = ({word , count}) => {
     </div>
   );
 }
-
-
-/*import {useEffect, useState} from 'react'
-import axios from 'axios'
-
-export default function App() {
-  const [text , setText] = useState('')
-  useEffect(() => {
-    axios.get('https://raw.githubusercontent.com/invictustech/test/main/README.md')
-    .then(res => {
-      //console.log('res' , setText(res.data));
-      setText(text)
-    }).catch(err => console.log('err' ,err))
-  })
-  
-  function wordFreq(string) {
-    var words = string.replace(/[.]/g, '').split(/\s/);
-    var freqMap = {};
-    words.forEach(function(w) {
-        if (!freqMap[w]) {
-            freqMap[w] = 0;
-        }
-        freqMap[w] += 1;
-    });
-
-    return freqMap;
-}
-
-const array = []
-array.push(wordFreq(text));
-console.log(wordFreq(text))
-  return (
-    <div className="App">
-        <p>array</p> 
-    </div>
-  );
-}
-
-*//*const axios = require('axios')
-
-function a(){
-  axios.get('https://raw.githubusercontent.com/invictustech/test/main/README.md')
-    .then(result => {
-      let frequentObj = {};
-      let stringArray1 = result.data.split(' ').join(',').split('\n').join(',').split('-').join(',').split('.').join(',').split(',');
-      var stringArray = stringArray1.filter(function (el) {
-        return el !== '';
-      });
-      for (let i = 0; i < stringArray.length; i++) {
-        let word = stringArray[i];
-        if (frequentObj[word]) {
-          frequentObj[word]++;
-        } else {
-          frequentObj[word] = 1;
-        }
-      }
-      const frequentArray = Object.entries(frequentObj);
-      frequentArray.sort(function(a,b) {
-        return b[1]-a[1]
-      });
-
-      const final = []
-
-      for(var i=0; i<frequentArray.length; i++)  {
-          final.push({word: frequentArray[i][0], freq: frequentArray[i][1]});
-      }
-      console.log(final)
-      return final;
-      *//*console.log(typeof(final));
-      console.log(final);
-    })
-    .catch(error => {
-      console.log(error)
-    })
-}*/

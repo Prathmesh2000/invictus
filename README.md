@@ -1,14 +1,34 @@
 # Invictus Drive Assignment Readme 
-## Module used-
+
+<pre>
+Name:Prathmesh Agrawal
+Registration number: 11802444
+College: Lovely Professional University
+</pre>
+
+## hosted on Heroku
+### URL - https://invictusdriveassignment.herokuapp.com/
+
+## Libraries used-
 ### axios 
 It is used to fetch data from url "https://raw.githubusercontent.com/invictustech/test/main/README.md"
 
-In fetch.jsx content the functional component Fetch data is fetched and stored in text and useState and useEffect is usedfor it.
-Their is function wordFreq inside Fetch in it we parse the fetched data in object containing words from the fetched data, then frequency of words is stored in it and for it pure logic is used no in-built module is used and then array of object is created containing key word, count and value word from string and their frequency and it is sorted in descending order.
-Fetch function takes value and the array of object is slice to the number of value given to function for example if the passed value is 5 then the new array is of first 5 value of orignal arrray of object.
-Fetch returns the table made from value of sliced array of object
-
-In App.jsx contents the functional component in it we take input from input form and on click of button input value is set to a variable and it is passed to 
+## components of the code-
+Two functional components are made</br></br>
+1)Fetch in fetch.jsx</br>
+In Fetch data is fetched from url using axios module, after in function wordFreq , - . ; are removed and words are splited and stoed in object named words and frquency of every word in words is find using logic 
+<pre>
+    var freqMap = {};
+    words.forEach(function(w) {
+        if (!freqMap[w]) {
+            freqMap[w] = 0;
+        }
+        freqMap[w] += 1;
+    });
+</pre>
+and pushed into array name array and then each word in array assigned key "word" and freq of that word key "count" and stored in resultarray, resultarray is sliced as the value given to functional component as parameter then Fetch functional component returns the table formed from sliced array.</br></br>
+2)App in App.jsx</br>
+In App react useState is used to store value of input form and on click on button change function is triggered which store the input value in variable name num which is passed to the Fetch component.
 
 ## Test Case-
 

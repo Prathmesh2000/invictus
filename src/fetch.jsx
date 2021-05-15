@@ -69,7 +69,6 @@ else if(num<=0){
 }
 else if(num===1){
     return(
-        <p>Nothing to show N is equal to 0</p>
     )
 }
 else if(Number.isNaN(num)){

@@ -5,7 +5,6 @@ function App(){
   const [state, setState] = useState(0)
   const [num, setNum] = useState("")
 
-  console.log(state)
 
   function handleChange(event){
     setNum(event.target.value)

@@ -12,6 +12,7 @@ h1{
 
 .btn{
   border-style: none;
+  outline: none;
 }
 
 table{
@@ -60,6 +61,7 @@ input{
   padding: 10px;
   text-align: center;
   border-radius: 5px;
+  outline: none;
 }
 
 .btn{
